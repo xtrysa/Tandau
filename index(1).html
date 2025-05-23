@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Extra Lab</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="attached_assets/photo_2025-01-09_16-06-18.jpg" alt="MEL Logo" class="logo-img">
+            <span>My Extra Lab</span>
+        </div>
+        <div class="header-right">
+            <div class="lang-switcher">
+                <button onclick="changeLanguage('en')">EN</button>
+                <button onclick="changeLanguage('ru')">RU</button>
+                <button onclick="changeLanguage('kz')">KZ</button>
+            </div>
+
+            <a href="#login" class="login-btn">Login</a>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#home" class="active" data-translate="home">Home</a>
+        <a href="pages/case-competitions.html" data-translate="caseComp">Case Competitions</a>
+        <a href="pages/hackathons.html" data-translate="hackathons">Hackathons</a>
+        <a href="pages/internships.html" data-translate="internships">Internships</a>
+        <a href="pages/essays.html" data-translate="essays">Essay Competitions</a>
+        <a href="pages/men-registration.html" data-translate="mel">My Extra Network</a>
+        <a href="pages/meta-registration.html" data-translate="meta">META</a>
+        <a href="#about" data-translate="aboutUs">About Us</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="slider">
+                <!-- Slider content will be added dynamically -->
+            </div>
+
+            <div class="mini-sliders">
+                <div class="mini-slider" id="case-comp-slider">
+                    <h3>Case Competition</h3>
+                    <p>Участвуйте в кейс-чемпионатах от ведущих компаний Казахстана. Решайте реальные бизнес-задачи, получайте менторство от экспертов и возможность стажировки.</p>
+                    <div class="case-comp-details">
+                        <h4>Наши кейс-чемпионаты:</h4>
+                        <ul>
+                            <li>Сотрудничество с топ-компаниями</li>
+                            <li>Призовой фонд до $5000</li>
+                            <li>Возможность трудоустройства</li>
+                            <li>Сертификаты участников</li>
+                        </ul>
+                        <a href="https://www.instagram.com/myextra.kz" class="social-link" target="_blank">
+                            Следите за обновлениями в Instagram
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mini-slider" id="hackathons-slider">
+                    <h3>Hackathons</h3>
+                    <p>Создавайте инновационные IT-решения на наших хакатонах. Работайте в команде, развивайте навыки программирования и выигрывайте призы.</p>
+                </div>
+                <div class="mini-slider" id="internships-slider">
+                    <h3>Internships</h3>
+                    <p>Получите доступ к стажировкам в топовых компаниях. MEL помогает талантливым студентам найти свой первый профессиональный опыт.</p>
+                </div>
+                <div class="mini-slider" id="essays-slider">
+                    <h3>Essays</h3>
+                    <p>Профессиональная помощь в написании мотивационных писем для поступления в ведущие университеты мира.</p>
+                </div>
+                <div class="mini-slider" id="mel-slider">
+                    <h3>M.E.L.</h3>
+                    <p>MyExtraLab - ваш путь к успешной карьере. Мы развиваем таланты и создаем возможности для молодежи Казахстана.</p>
+                </div>
+            </div>
+
+            <div class="auth-section">
+                <div class="login-form" id="loginForm">
+                    <h2>Вход в систему</h2>
+                    <form onsubmit="return handleLogin(event)">
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Пароль" required>
+                        <button type="submit">Войти</button>
+                    </form>
+                    <p>Нет аккаунта? <a href="#" onclick="showRegistrationPopup()">Зарегистрироваться</a></p>
+                </div>
+
+                <div id="registrationPopup" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <h2>Регистрация</h2>
+                        <div class="registration-tabs">
+                            <button onclick="switchForm('general')" class="active">Общая</button>
+                            <button onclick="switchForm('men')">MEN</button>
+                            <button onclick="switchForm('meta')">META</button>
+                        </div>
+                        <form id="generalForm" onsubmit="return handleRegistration(event)" data-form-type="general">
+                            <input type="text" placeholder="Имя, Фамилия" required>
+                            <input type="text" placeholder="Город" required>
+                            <input type="text" placeholder="Школа/Университет" required>
+                            <input type="text" placeholder="Класс/Курс" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="tel" placeholder="WhatsApp" required>
+                            <button type="submit">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partners-section">
+                <h2>Our Partners</h2>
+                <div class="partners-grid">
+                    <!-- Partners logos will be added here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>О нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>MyExtraLab (MEL)</h3>
+                    <p>MyExtraLab - это инновационная образовательная платформа, созданная для развития талантливой молодежи Казахстана. Мы специализируемся на:</p>
+                    <ul>
+                        <li>Организации кейс-чемпионатов с ведущими компаниями</li>
+                        <li>Проведении хакатонов и IT-соревнований</li>
+                        <li>Помощи в поиске стажировок в топовых компаниях</li>
+                        <li>Подготовке к поступлению в лучшие университеты мира</li>
+                    </ul>
+                </div>
+                <div class="achievement-cards">
+                    <div class="achievement-card">
+                        <h4>1500+</h4>
+                        <p>Активных участников</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>75+</h4>
+                        <p>Компаний-партнеров</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>200+</h4>
+                        <p>Трудоустроенных<br>выпускников</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4>45+</h4>
+                        <p>Успешных кейс-чемпионатов</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="attached_assets/photo_2025-01-09_16-06-18.jpg" alt="MEL Logo">
+                </div>
+                <div class="footer-motto">
+                    Work Hard | Be Extra | Stay Hungry
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/myextra.kz" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/myextra_kz" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/77767097292"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>CEO: Alexander Lukashevich</p>
+                    <p>Phone: +7 776 709 7292</p>
+                    <p>Email: alexander@myextra.kz</p>
+                    <p>Address: <a href="https://go.2gis.com/krvim" target="_blank">26/1 Sarayshik St., Astana City, Kazakhstan</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.22.0/video.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
